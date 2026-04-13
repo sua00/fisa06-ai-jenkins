@@ -1,0 +1,5 @@
+.env
+**/__pycache__/
+fastapi_app.log
+*.csv
+*.pem

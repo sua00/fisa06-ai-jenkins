@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Iris Prediction Result{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Iris Prediction Result</h1>
+    <div class="mt-4">
+        <h2>Your Input:</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Sepal Length: {{ sepal_length }}</li>
+            <li class="list-group-item">Sepal Width: {{ sepal_width }}</li>
+            <li class="list-group-item">Petal Length: {{ petal_length }}</li>
+            <li class="list-group-item">Petal Width: {{ petal_width }}</li>
+        </ul>
+    </div>
+    <div class="mt-4">
+        <h2>Prediction:</h2>
+        <p class="alert alert-info">The predicted class is: <strong>{{ prediction }}</strong></p>
+    </div>
+    
+    <hr class="my-5">
+    
+    <div class="mt-4">
+        <h2>All Database Records</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Sepal Length</th>
+                        <th scope="col">Sepal Width</th>
+                        <th scope="col">Petal Length</th>
+                        <th scope="col">Petal Width</th>
+                        <th scope="col">Prediction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in history %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.sepal_length }}</td>
+                        <td>{{ item.sepal_width }}</td>
+                        <td>{{ item.petal_length }}</td>
+                        <td>{{ item.petal_width }}</td>
+                        <td>
+                            <span class="badge bg-success">{{ item.prediction }}</span>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center">No records found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <a href="/" class="btn btn-secondary mt-3 mb-5">Go back to input form</a>
+{% endblock %}

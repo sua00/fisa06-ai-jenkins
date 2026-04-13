@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pymysql
+sqlalchemy
+pydantic
+httpx
+jinja2
+joblib
+scikit-learn
+python-dotenv
+python-multipart
